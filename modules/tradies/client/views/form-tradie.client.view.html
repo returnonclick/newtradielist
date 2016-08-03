@@ -13,6 +13,34 @@
           </div>
         </div>
         <div class="form-group">
+         <label for="description">Description</label>
+         <textarea name="description" ng-model="vm.tradie.description" id="description" class="form-control" cols="30" rows="10" placeholder="Description"></textarea>
+       </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="location">Location</label>
+          <input name="location" type="text" ng-model="vm.tradie.location" id="location" class="form-control" placeholder="Location" required>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="image">Image</label>
+          <input name="image" type="text" ng-model="vm.tradie.image" id="image" class="form-control" placeholder="Image" required>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="phone">Phone</label>
+          <input name="phone" type="text" ng-model="vm.tradie.phone" id="phone" class="form-control" placeholder="Phone" required>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Website">Website</label>
+          <input name="website" type="website" ng-model="vm.tradie.website" id="website" class="form-control" placeholder="Website" required>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="abn">ABN</label>
+          <input name="abn" type="abn" ng-model="vm.tradie.abn" id="abn" class="form-control" placeholder="ABN" required>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="acn">ACN</label>
+          <input name="acn" type="acn" ng-model="vm.tradie.acn" id="acn" class="form-control" placeholder="ACN" required>
+        </div>
+        <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.tradie._id ? 'Update' : 'Create'}}</button>
         </div>
         <div ng-show="vm.error" class="text-danger">

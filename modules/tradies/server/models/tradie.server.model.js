@@ -16,6 +16,41 @@ var TradieSchema = new Schema({
     required: 'Please fill Tradie name',
     trim: true
   },
+  description: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  location: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  image: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  phone: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  website: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  abn: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  acn: {
+    type: String,
+    default: '',
+    trim: true
+  },
   created: {
     type: Date,
     default: Date.now
