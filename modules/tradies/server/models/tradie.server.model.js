@@ -28,7 +28,7 @@ var TradieSchema = new Schema({
   },
   image: {
     type: String,
-    default: '',
+    default: 'modules/users/client/img/profile/default.png',
     trim: true
   },
   phone: {

@@ -5,6 +5,8 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
+  multer = require('multer'),
+  config = require(path.resolve('./config/config')),
   Tradie = mongoose.model('Tradie'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash');
@@ -15,6 +17,13 @@ var path = require('path'),
 exports.create = function(req, res) {
   var tradie = new Tradie(req.body);
   tradie.user = req.user;
+
+  var upload = multer(config.uploads.tradiesUpload).single('newProfilePicture');
+  var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
+
+  // Filtering to upload only images
+  upload.fileFilter = profileUploadFileFilter;
+  tradie.imageURL = config.uploads.tradiesUpload.dest + req.file.filename;
 
   tradie.save(function(err) {
     if (err) {

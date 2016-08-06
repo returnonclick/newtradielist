@@ -19,4 +19,5 @@ module.exports = function(app) {
 
   // Finish by binding the Tradie middleware
   app.param('tradieId', tradies.tradieByID);
+
 };
