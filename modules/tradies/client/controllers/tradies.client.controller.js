@@ -6,9 +6,9 @@
     .module('tradies')
     .controller('TradiesController', TradiesController);
 
-  TradiesController.$inject = ['$scope', '$state', '$timeout', '$window', 'Authentication', 'tradieResolve', 'FileUploader'];
+  TradiesController.$inject = ['$scope', '$timeout', '$window', '$state', 'Authentication', 'tradieResolve', 'FileUploader'];
 
-  function TradiesController ($scope, $state, $timeout, $window, Authentication, tradie, FileUploader) {
+  function TradiesController ($scope, $timeout, $window, $state, Authentication, tradie, FileUploader) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -22,7 +22,7 @@
 
     // Create file uploader instance
     $scope.uploader = new FileUploader({
-      url: 'api/tradies/picture',
+      url: 'api/tradies/:tradieId',
       alias: 'newProfilePicture'
     });
 
@@ -54,9 +54,6 @@
       // Show success message
       $scope.success = true;
 
-      // Populate user object
-      $scope.user = Authentication.user = response;
-
       // Clear upload buttons
       $scope.cancelUpload();
     };
@@ -82,9 +79,8 @@
     // Cancel the upload process
     $scope.cancelUpload = function () {
       $scope.uploader.clearQueue();
-      $scope.imageURL = $scope.tradie.imageURL;
+      $scope.imageURL = vm.tradie.image;
     };
-
 
     // Remove existing Tradie
     function remove() {
@@ -104,10 +100,8 @@
       // TODO: move create/update logic to service
       if (vm.tradie._id) {
         vm.tradie.$update(successCallback, errorCallback);
-        $scope.uploadProfilePicture();
       } else {
         vm.tradie.$save(successCallback, errorCallback);
-        $scope.uploadProfilePicture();
       }
 
       function successCallback(res) {

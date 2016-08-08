@@ -58,15 +58,31 @@ exports.update = function(req, res) {
 
   tradie = _.extend(tradie , req.body);
 
-  tradie.save(function(err) {
-    if (err) {
+  var upload = multer(config.uploads.tradiesUpload).single('newProfilePicture');
+  var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
+
+  // Filtering to upload only images
+  upload.fileFilter = profileUploadFileFilter;
+
+  upload(req, res, function (uploadError) {
+    if (uploadError) {
       return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
+        message: 'Error occurred while uploading profile picture'
       });
     } else {
-      res.jsonp(tradie);
+      tradie.imageURL = config.uploads.tradiesUpload.dest + req.file.filename;
+      tradie.save(function(err) {
+        if (err) {
+          return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+          });
+        } else {
+          res.jsonp(tradie);
+        }
+      });
     }
   });
+  
 };
 
 /**
