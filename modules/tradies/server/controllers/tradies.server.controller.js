@@ -23,17 +23,32 @@ exports.create = function(req, res) {
 
   // Filtering to upload only images
   upload.fileFilter = profileUploadFileFilter;
-  tradie.imageURL = config.uploads.tradiesUpload.dest + req.file.filename;
 
-  tradie.save(function(err) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.jsonp(tradie);
-    }
-  });
+
+  if (tradie) {
+    upload(req, res, function (uploadError) {
+      if (uploadError) {
+        return res.status(400).send({
+          message: 'Error occurred while uploading profile picture'
+        });
+      } else {
+        tradie.imageURL = config.uploads.tradiesUpload.dest + req.file.filename;
+        tradie.save(function(err) {
+          if (err) {
+            return res.status(400).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            res.jsonp(tradie);
+          }
+        });
+      }
+    });
+  } else {
+    res.status(400).send({
+      message: 'ERRORRRRRR'
+    });
+  }
 };
 
 /**
@@ -64,25 +79,32 @@ exports.update = function(req, res) {
   // Filtering to upload only images
   upload.fileFilter = profileUploadFileFilter;
 
-  upload(req, res, function (uploadError) {
-    if (uploadError) {
-      return res.status(400).send({
-        message: 'Error occurred while uploading profile picture'
-      });
-    } else {
-      tradie.imageURL = config.uploads.tradiesUpload.dest + req.file.filename;
-      tradie.save(function(err) {
-        if (err) {
-          return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-          });
-        } else {
-          res.jsonp(tradie);
-        }
-      });
-    }
-  });
-  
+
+  if (tradie) {
+    upload(req, res, function (uploadError) {
+      if (uploadError) {
+        return res.status(400).send({
+          message: 'Error occurred while uploading profile picture'
+        });
+      } else {
+        tradie.imageURL = config.uploads.tradiesUpload.dest + req.file.filename;
+        tradie.save(function(err) {
+          if (err) {
+            return res.status(400).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            res.json(tradie);
+          }
+        });
+      }
+    });
+  } else {
+    res.status(400).send({
+      message: 'ERRORRRRRR'
+    });
+  }
+
 };
 
 /**

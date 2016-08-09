@@ -22,11 +22,11 @@
         </div>
         <fieldset>
           <div class="form-group text-center">
-            <img ng-src="{{imageURL}}" alt="{{vm.tradie.name}}" class="img-thumbnail user-profile-picture">
+            <img ng-src="{{vm.imageURL}}" alt="{{vm.tradie.name}}" class="img-thumbnail user-profile-picture">
           </div>
           <div class="text-center form-group" ng-hide="uploader.queue.length">
           <span class="btn btn-default btn-file">
-              Select Image <input type="file" nv-file-select uploader="uploader">
+              Select Image <input type="file" nv-file-select uploader="vm.uploader">
           </span>
           </div>
         </fieldset>

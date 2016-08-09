@@ -1,5 +1,2 @@
-(function (app) {
-  'use strict';
-
-  app.registerModule('tradies');
-})(ApplicationConfiguration);
+// Use Applicaion configuration module to register a new module
+ApplicationConfiguration.registerModule('tradies');
