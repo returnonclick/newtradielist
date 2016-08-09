@@ -20,16 +20,6 @@
           <label class="control-label" for="location">Location</label>
           <input name="location" type="text" ng-model="vm.tradie.location" id="location" class="form-control" placeholder="Location" required>
         </div>
-        <fieldset>
-          <div class="form-group text-center">
-            <img ng-src="{{vm.imageURL}}" alt="{{vm.tradie.name}}" class="img-thumbnail user-profile-picture">
-          </div>
-          <div class="text-center form-group" ng-hide="uploader.queue.length">
-          <span class="btn btn-default btn-file">
-              Select Image <input type="file" nv-file-select uploader="vm.uploader">
-          </span>
-          </div>
-        </fieldset>
         <div class="form-group" show-errors>
           <label class="control-label" for="phone">Phone</label>
           <input name="phone" type="text" ng-model="vm.tradie.phone" id="phone" class="form-control" placeholder="Phone" required>

@@ -16,39 +16,19 @@ var path = require('path'),
  */
 exports.create = function(req, res) {
   var tradie = new Tradie(req.body);
+  
   tradie.user = req.user;
 
-  var upload = multer(config.uploads.tradiesUpload).single('newProfilePicture');
-  var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
+  tradie.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(tradie);
+    }
+  });
 
-  // Filtering to upload only images
-  upload.fileFilter = profileUploadFileFilter;
-
-
-  if (tradie) {
-    upload(req, res, function (uploadError) {
-      if (uploadError) {
-        return res.status(400).send({
-          message: 'Error occurred while uploading profile picture'
-        });
-      } else {
-        tradie.imageURL = config.uploads.tradiesUpload.dest + req.file.filename;
-        tradie.save(function(err) {
-          if (err) {
-            return res.status(400).send({
-              message: errorHandler.getErrorMessage(err)
-            });
-          } else {
-            res.jsonp(tradie);
-          }
-        });
-      }
-    });
-  } else {
-    res.status(400).send({
-      message: 'ERRORRRRRR'
-    });
-  }
 };
 
 /**
@@ -73,37 +53,15 @@ exports.update = function(req, res) {
 
   tradie = _.extend(tradie , req.body);
 
-  var upload = multer(config.uploads.tradiesUpload).single('newProfilePicture');
-  var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
-
-  // Filtering to upload only images
-  upload.fileFilter = profileUploadFileFilter;
-
-
-  if (tradie) {
-    upload(req, res, function (uploadError) {
-      if (uploadError) {
-        return res.status(400).send({
-          message: 'Error occurred while uploading profile picture'
-        });
-      } else {
-        tradie.imageURL = config.uploads.tradiesUpload.dest + req.file.filename;
-        tradie.save(function(err) {
-          if (err) {
-            return res.status(400).send({
-              message: errorHandler.getErrorMessage(err)
-            });
-          } else {
-            res.json(tradie);
-          }
-        });
-      }
-    });
-  } else {
-    res.status(400).send({
-      message: 'ERRORRRRRR'
-    });
-  }
+  tradie.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(tradie);
+    }
+  });
 
 };
 
