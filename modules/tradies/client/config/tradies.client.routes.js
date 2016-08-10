@@ -58,7 +58,7 @@
           tradieResolve: getTradie
         },
         data:{
-          pageTitle: 'Tradie {{ articleResolve.name }}'
+          pageTitle: 'Tradie {{ tradieResolve.name }}'
         }
       });
   }

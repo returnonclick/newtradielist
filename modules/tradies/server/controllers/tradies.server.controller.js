@@ -5,8 +5,8 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
-  multer = require('multer'),
   config = require(path.resolve('./config/config')),
+  multer = require('multer'),
   Tradie = mongoose.model('Tradie'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash');
@@ -118,5 +118,40 @@ exports.tradieByID = function(req, res, next, id) {
     }
     req.tradie = tradie;
     next();
+  });
+};
+
+/**
+ * Update tradie picture
+ */
+exports.changePicture = function (req, res) {
+  var tradie = req.tradie ;
+  tradie = _.extend(tradie , req.body);
+
+  var message = null;
+  var upload = multer(config.uploads.tradiesUpload).single('newProfilePicture');
+  var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
+
+  // Filtering to upload only images
+  upload.fileFilter = profileUploadFileFilter;
+
+
+  upload(req, res, function (uploadError) {
+    if(uploadError) {
+      return res.status(400).send({
+        message: 'Error occurred while uploading profile picture'
+      });
+    } else {
+      tradie.image = config.uploads.tradiesUpload.dest + req.file.filename;
+      tradie.save(function (saveError) {
+        if (saveError) {
+          return res.status(400).send({
+            message: errorHandler.getErrorMessage(saveError)
+          });
+        } else {
+          res.json(tradie);
+        }
+      });
+    }
   });
 };

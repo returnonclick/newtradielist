@@ -20,7 +20,10 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/tradies/:tradieId',
       permissions: '*'
-    }]
+    }, {
+        resources: '/api/tradies/picture',
+        permissions: '*'
+      }]
   }, {
     roles: ['user'],
     allows: [{
@@ -29,6 +32,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/tradies/:tradieId',
       permissions: ['get']
+    }, {
+      resources: '/api/tradies/picture',
+      permissions: ['get', 'post']
     }]
   }, {
     roles: ['guest'],
