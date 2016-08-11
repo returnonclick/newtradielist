@@ -100,26 +100,15 @@ exports.list = function(req, res) {
 /**
  * List of Tradie Picture
  */
-exports.listPicture = function(req, res, id) {
+exports.listPicture = function(req, res) {
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).send({
-      message: 'Tradie is invalid'
-    });
-  }
+  // NOTE: the object was populated in the middleware
+  var tradie = req.tradie ;
+  tradie = _.extend(tradie , req.body);
 
-  Tradie.findById(id).populate('user', 'displayName').exec(function (err, tradie) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else if (!tradie) {
-      return res.status(404).send({
-        message: 'No Tradie with that identifier has been found'
-      });
-    }
-    res.jsonp(tradie.image);
-  });
+  // NOTE: This field returns the image of the tradie.
+  res.jsonp(tradie.image);
+
 };
 
 /**
