@@ -28,12 +28,5 @@
       state: 'tradies.create',
       roles: ['user']
     });
-    // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'tradies', {
-      title: 'Picture Tradie',
-      state: 'tradies.picture',
-      roles: ['user']
-    });
-
   }
 })();

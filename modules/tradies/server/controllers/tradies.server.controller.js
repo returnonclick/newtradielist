@@ -98,9 +98,9 @@ exports.list = function(req, res) {
 };
 
 /**
- * Tradie middleware
+ * List of Tradie Picture
  */
-exports.tradieByID = function(req, res, next, id) {
+exports.listPicture = function(req, res, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
@@ -110,14 +110,15 @@ exports.tradieByID = function(req, res, next, id) {
 
   Tradie.findById(id).populate('user', 'displayName').exec(function (err, tradie) {
     if (err) {
-      return next(err);
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
     } else if (!tradie) {
       return res.status(404).send({
         message: 'No Tradie with that identifier has been found'
       });
     }
-    req.tradie = tradie;
-    next();
+    res.jsonp(tradie.image);
   });
 };
 
@@ -129,7 +130,7 @@ exports.changePicture = function (req, res) {
   tradie = _.extend(tradie , req.body);
 
   var message = null;
-  var upload = multer(config.uploads.tradiesUpload).single('newProfilePicture');
+  var upload = multer(config.uploads.tradiesUpload).single('newPicture');
   var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
 
   // Filtering to upload only images
@@ -153,5 +154,29 @@ exports.changePicture = function (req, res) {
         }
       });
     }
+  });
+};
+
+/**
+ * Tradie middleware
+ */
+exports.tradieByID = function(req, res, next, id) {
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'Tradie is invalid'
+    });
+  }
+
+  Tradie.findById(id).populate('user', 'displayName').exec(function (err, tradie) {
+    if (err) {
+      return next(err);
+    } else if (!tradie) {
+      return res.status(404).send({
+        message: 'No Tradie with that identifier has been found'
+      });
+    }
+    req.tradie = tradie;
+    next();
   });
 };

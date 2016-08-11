@@ -8,7 +8,7 @@
 
   TradiesController.$inject = ['$scope', '$timeout', '$window', '$state', 'Authentication', 'FileUploader', 'tradieResolve'];
 
-  function TradiesController ($scope, $state, $timeout, $window, Authentication, FileUploader, tradie) {
+  function TradiesController ($scope, $timeout, $window, $state, Authentication, FileUploader, tradie) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -57,8 +57,8 @@
 
     // Create file uploader instance
     vm.uploader = new FileUploader({
-      url: 'api/tradies/picture',
-      alias: 'newProfilePicture'
+      url: 'api/tradies/picture/' + vm.tradie._id,
+      alias: 'newPicture'
     });
 
     // Set file uploader image filter
@@ -89,9 +89,6 @@
       // Show success message
       vm.success = true;
 
-      // Populate user object
-      vm.user = Authentication.user = response;
-
       // Clear upload buttons
       vm.cancelUpload();
     };
@@ -117,7 +114,7 @@
     // Cancel the upload process
     function cancelUpload() {
       vm.uploader.clearQueue();
-      vm.imageURL = vm.tradie.image;
+      //vm.imageURL = vm.tradie.image;
     }
   }
 })();

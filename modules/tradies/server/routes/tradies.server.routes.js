@@ -17,8 +17,9 @@ module.exports = function(app) {
     .put(tradies.update)
     .delete(tradies.delete);
 
-  app.route('/api/tradies/picture').all(tradiesPolicy.isAllowed)
-    .post(tradies.changePicture);
+  app.route('/api/tradies/picture/:tradieId').all(tradiesPolicy.isAllowed)
+    .post(tradies.changePicture)
+    .get(tradies.listPicture);
 
   // Finish by binding the Tradie middleware
   app.param('tradieId', tradies.tradieByID);

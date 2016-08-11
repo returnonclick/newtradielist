@@ -21,9 +21,12 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/tradies/:tradieId',
       permissions: '*'
     }, {
-        resources: '/api/tradies/picture',
-        permissions: '*'
-      }]
+      resources: '/api/tradies/picture/',
+      permissions: '*'
+    }, {
+      resources: '/api/tradies/picture/:tradieId',
+      permissions: '*'
+    }]
   }, {
     roles: ['user'],
     allows: [{
@@ -33,8 +36,8 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/tradies/:tradieId',
       permissions: ['get']
     }, {
-      resources: '/api/tradies/picture',
-      permissions: ['get', 'post']
+      resources: '/api/tradies/picture/:tradieId',
+      permissions: ['get']
     }]
   }, {
     roles: ['guest'],
@@ -43,6 +46,9 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }, {
       resources: '/api/tradies/:tradieId',
+      permissions: ['get']
+    }, {
+      resources: '/api/tradies/picture/:tradieId',
       permissions: ['get']
     }]
   }]);
