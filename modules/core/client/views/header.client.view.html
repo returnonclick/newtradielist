@@ -1,3 +1,34 @@
+<!-- /////////////////////////////
+        ////////// Begin header //////////
+        ////////////////////////////// -->
+
+<header class="is-fixed" ng-controller="HeaderController">
+  <div class="container horizontal-align-center">
+    <a id="cd-logo" href="index.html"><img src="modules/core/client/img/logo.png" alt="image"></a>
+    <nav id="cd-top-nav" role="navigation">
+      <ul ng-hide="authentication.user">
+        <li ui-sref-active="active">
+          <a ui-sref="authentication.signin">Login</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="authentication.signup">Register</a>
+        </li>
+        <li><span><i class="fa fa-search"></i></span></li>
+      </ul>
+    </nav>
+    <!-- Menu trigger (menu button) -->
+  </div>
+  <a id="cd-menu-trigger" href="#0"><span class="cd-menu-icon"></span></a>
+</header>
+
+<!-- /////////////////////////////
+////////// End header //////////
+////////////////////////////// -->
+
+
+
+
+<!--
 <div class="container" ng-controller="HeaderController">
   <div class="navbar-header">
     <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
@@ -57,3 +88,4 @@
     </ul>
   </nav>
 </div>
+-->

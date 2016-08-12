@@ -166,9 +166,12 @@ angular.module('core').service('Menus', [
       return this.menus[menuId];
     };
 
-    //Adding the topbar menu
-    this.addMenu('topbar', {
+    //Adding the menus
+    this.addMenu('rightlateral', {
       roles: ['*']
+    });
+    this.addMenu('leftlateral', {
+      roles: ['admin']
     });
   }
 ]);

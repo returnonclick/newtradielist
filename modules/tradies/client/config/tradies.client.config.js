@@ -9,7 +9,7 @@
 
   function menuConfig(Menus) {
     // Set top bar menu items
-    Menus.addMenuItem('topbar', {
+    Menus.addMenuItem('rightlateral', {
       title: 'Tradies',
       state: 'tradies',
       type: 'dropdown',
@@ -17,16 +17,16 @@
     });
 
     // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'tradies', {
+    Menus.addSubMenuItem('rightlateral', 'tradies', {
       title: 'List Tradies',
       state: 'tradies.list'
     });
 
     // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'tradies', {
+    Menus.addSubMenuItem('rightlateral', 'tradies', {
       title: 'Create Tradie',
       state: 'tradies.create',
-      roles: ['user']
+      roles: ['admin', 'user']
     });
   }
 })();

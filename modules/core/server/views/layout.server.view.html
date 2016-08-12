@@ -36,12 +36,17 @@
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content">
-    <section class="container">
-      {% block content %}{% endblock %}
-    </section>
-  </section>
+
+  <!-- Page preloader (display loading animation while page loads)
+  <div id="preloader"><div class="pulse"></div></div> -->
+
+  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="is-fixed"></header>
+
+  {% block content %}{% endblock %}
+
+
+  <!-- Scroll to top button -->
+  <a href="#" class="scrolltotop hidden-xs"><i class="fa fa-arrow-up"></i></a>
 
   <!--Embedding The User Object-->
   <script type="text/javascript">

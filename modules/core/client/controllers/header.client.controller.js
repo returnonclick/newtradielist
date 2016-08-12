@@ -7,7 +7,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
     $scope.authentication = Authentication;
 
     // Get the topbar menu
-    $scope.menu = Menus.getMenu('topbar');
+    $scope.menu = Menus.getMenu('leftlateral');
 
     // Toggle the menu items
     $scope.isCollapsed = false;
