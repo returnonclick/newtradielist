@@ -7,10 +7,10 @@ angular.module('core', [])
     .factory('stellar', function() {
         return {
             window: function() {
-                jQuery(window).stellar();
+                window.jQuery(window).stellar();
             },
             against: function(selector, args) {
-                jQuery(selector).stellar(args);
+                window.jQuery(selector).stellar(args);
             }
         };
     })
