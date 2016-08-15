@@ -1,17 +1,16 @@
 /**
- * Created by lucasnascimento on 12/08/2016.
+ * Created by lucasnascimento on 15/08/2016.
  */
 'use strict';
-
-angular.module('core', [])
+angular.module('stellar.directives', [])
     .factory('stellar', function() {
         return {
             window: function() {
-                window.jQuery(window).stellar();
+                jQuery(window).stellar();
             },
             against: function(selector, args) {
-                window.jQuery(selector).stellar(args);
-            }
+                jQuery(selector).stellar(args);
+            },
         };
     })
     .directive('stellarBackground', function() {

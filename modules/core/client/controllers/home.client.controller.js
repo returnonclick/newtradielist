@@ -1,9 +1,8 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'stellar',
-  function ($scope, Authentication, stellar) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication',
+  function ($scope, Authentication) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
-    stellar.against(window);
   }
 ]);

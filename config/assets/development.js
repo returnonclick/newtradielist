@@ -23,21 +23,7 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        'public/lib/jquery/dist/jquery-1.11.1.min.js',
-        'public/lib/bootstrap/dist/js/bootstrap.min.js',
-        'public/lib/vendor/jquery.easing.min.js',
-        'public/lib/vendor/jquery.stellar.min.js',
-        'public/lib/vendor/smoothscroll.js',
-        'public/lib/vendor/jquery.counterup.min.js',
-        'public/lib/vendor/waypoints.min.js',
-        'public/lib/ytplayer/js/jquery.mb.YTPlayer.min.js',
-        'public/lib/magnific-popup/js/jquery.magnific-popup.min.js',
-        'public/lib/vendor/masonry.pkgd.min.js',
-        'public/lib/vendor/imagesloaded.pkgd.min.js',
-        'public/lib/owl-carousel/js/owl.carousel.js',
-        'public/lib/owl-carousel/js/owl.carousel.plugins.js',
-        'public/theme.js',
-        'public/custom.js'
+        'public/lib/ng-parallax/js/ngParallax.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

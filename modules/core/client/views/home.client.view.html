@@ -6,16 +6,16 @@
 
 
   <!-- Begin intro section (Parallax) -->
-  <section id="section-intro" class="intro-parallax full-height">
+  <section id="section-intro" class="intro-parallax full-height" ng-controller="SectionIntroController">
 
     <!-- Element background image (parallax) -->
-    <div class="full-cover bg-image" data-stellar-ratio="0.2" style="background-image: url('modules/core/client/img/intro/parallax-intro-bg.jpg');"></div>
+    <div class="full-cover bg-image" ng-parallax pattern="myPattern" speed="5"></div>
 
     <!-- Element cover -->
     <div class="cover"></div>
 
     <!-- Intro caption -->
-    <div class="intro-caption text-white align-center" data-stellar-ratio="0.6">
+    <div class="intro-caption text-white align-center" stellar="0.6">
 
       <div class="search">
         <form class="form-inline">

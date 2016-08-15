@@ -40,7 +40,7 @@
   <!-- Page preloader (display loading animation while page loads)
   <div id="preloader"><div class="pulse"></div></div> -->
 
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="is-fixed"></header>
+  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="is-fixed" ng-controller="HeaderController"></header>
 
   {% block content %}{% endblock %}
 
