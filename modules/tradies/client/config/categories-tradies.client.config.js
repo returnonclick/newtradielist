@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('tradies')
+    .module('categories')
     .run(menuConfig);
 
   menuConfig.$inject = ['Menus'];
@@ -10,22 +10,22 @@
   function menuConfig(Menus) {
     // Set top bar menu items
     Menus.addMenuItem('topbar', {
-      title: 'Tradies',
-      state: 'tradies',
+      title: 'Categories',
+      state: 'categories',
       type: 'dropdown',
       roles: ['*']
     });
 
     // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'tradies', {
-      title: 'List Tradies',
-      state: 'tradies.list'
+    Menus.addSubMenuItem('topbar', 'categories', {
+      title: 'List Categories',
+      state: 'categories.list'
     });
 
     // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'tradies', {
-      title: 'Create Tradie',
-      state: 'tradies.create',
+    Menus.addSubMenuItem('topbar', 'categories', {
+      title: 'Create Category',
+      state: 'categories.create',
       roles: ['admin', 'user']
     });
   }

@@ -1,0 +1,49 @@
+<section>
+  <div class="page-header">
+    <h1 data-ng-bind="vm.category.name"></h1>
+  </div>
+  <div class="pull-right"
+       data-ng-show="vm.category.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       data-ui-sref="categories.edit({ categoryId: vm.category._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" data-ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span data-ng-bind="vm.category.created | date:'mediumDate'"></span>
+      by
+      <span data-ng-if="vm.category.user"
+            data-ng-bind="vm.category.user.displayName"></span>
+      <span data-ng-if="!vm.category.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" data-ng-bind="vm.category.content"></p>
+
+  <fieldset>
+    <div class="form-group text-center">
+      <img ng-src="{{vm.imageURL}}" alt="{{vm.category.name}}" class="img-thumbnail user-profile-picture">
+    </div>
+    <div class="text-center form-group" ng-hide="vm.uploader.queue.length">
+          <span class="btn btn-default btn-file">
+              Select Image <input type="file" nv-file-select uploader="vm.uploader">
+          </span>
+    </div>
+    <div class="text-center form-group" ng-show="vm.uploader.queue.length">
+      <button class="btn btn-primary" ng-click="vm.uploadPicture();">Upload</button>
+      <button class="btn btn-default" ng-click="vm.cancelUpload();">Cancel</button>
+    </div>
+    <div ng-show="vm.success" class="text-center text-success">
+      <strong>Category Icon Changed Successfully</strong>
+    </div>
+    <div ng-show="error" class="text-center text-danger">
+      <strong ng-bind="error"></strong>
+    </div>
+  </fieldset>
+
+
+</section>

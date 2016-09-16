@@ -426,7 +426,7 @@ section .container {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 .YTPOverlay.raster {
-	background: url("../vendor/ytplayer/images/raster.png"); /* "raster.png" or "raster_dot.png" */
+	/*background: url("../vendor/ytplayer/images/raster.png"); /* "raster.png" or "raster_dot.png" */
 	background-color: rgba(0, 0, 0, 0.6);
 }
 .youtube-bg.fullscreen .YTPOverlay, .youtube-bg.fullscreen .YTPOverlay.raster {

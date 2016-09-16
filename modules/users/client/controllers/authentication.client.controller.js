@@ -4,6 +4,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
   function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator) {
     $scope.authentication = Authentication;
     $scope.popoverMsg = PasswordValidator.getPopoverMsg();
+    $scope.myPattern = 'modules/users/client/img/background/parallax-intro-bg.jpg';
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;

@@ -247,6 +247,8 @@ module.exports = function (grunt) {
     var done = this.async();
 
     grunt.file.mkdir(path.normalize(__dirname + '/modules/users/client/img/profile/uploads'));
+    grunt.file.mkdir(path.normalize(__dirname + '/modules/tradies/client/img'));
+    grunt.file.mkdir(path.normalize(__dirname + '/modules/tradies/client/img/categories'));
 
     done();
   });

@@ -2,7 +2,7 @@
 
 angular.module('core.admin').run(['Menus',
   function (Menus) {
-    Menus.addMenuItem('rightlateral', {
+    Menus.addMenuItem('topbar', {
       title: 'Admin',
       state: 'admin',
       type: 'dropdown',

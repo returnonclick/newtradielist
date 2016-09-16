@@ -167,7 +167,7 @@ angular.module('core').service('Menus', [
     };
 
     //Adding the menus
-    this.addMenu('rightlateral', {
+    this.addMenu('topbar', {
       roles: ['*']
     });
     this.addMenu('leftlateral', {

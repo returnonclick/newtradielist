@@ -42,6 +42,10 @@
 
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="is-fixed" ng-controller="HeaderController"></header>
 
+
+  <nav id="cd-lateral-nav" class="is-fixed fade" ng-show="bool" ng-include="'/modules/core/client/views/menu.client.view.html'" ng-controller="HeaderController" role="navigation"></nav>
+
+
   {% block content %}{% endblock %}
 
 

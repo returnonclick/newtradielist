@@ -51,6 +51,10 @@ var TradieSchema = new Schema({
     default: '',
     trim: true
   },
+  categories: [{
+    type: Schema.ObjectId,
+    ref: 'Category'
+  }],
   created: {
     type: Date,
     default: Date.now

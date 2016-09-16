@@ -33,7 +33,14 @@ header {
 	-moz-transition-duration: 0.4s;
 	transition-duration: 0.4s;
 }
-header.lateral-menu-is-open {
+
+
+
+.fade.ng-hide {
+
+	transition:0.5s linear all;
+	opacity:0;
+
 	/* translate to show the lateral menu */
 	-webkit-transform: translateX(-275px);
 	-moz-transform: translateX(-275px);
@@ -41,7 +48,7 @@ header.lateral-menu-is-open {
 	-o-transform: translateX(-275px);
 	transform: translateX(-275px);
 }
-header.is-fixed {
+.is-fixed {
 	position: fixed;
 }
 @media only screen and (max-width: 768px) {
@@ -201,13 +208,12 @@ header.is-fixed {
 /* ------------------------------------ */
 
 #cd-lateral-nav {
-	position: fixed;
 	height: 100%;
 	right: 15px;
 	top: 15px;
 	visibility: hidden;
 	/* the secondary navigation is covered by the main element */
-	z-index: 999;
+	z-index: 99999999;
 	width: 260px;
 	background-color: rgba(255, 255, 255, .9);
 	overflow-y: auto;

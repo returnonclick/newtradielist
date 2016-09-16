@@ -3,7 +3,7 @@
         ////////////////////////////// -->
 
   <div class="container horizontal-align-center">
-    <a id="cd-logo" href="index.html"><img src="modules/core/client/img/logo.png" alt="image"></a>
+    <a id="cd-logo" ui-sref="home"><img src="modules/core/client/img/logo.png" alt="image"></a>
     <nav id="cd-top-nav" role="navigation">
       <ul ng-hide="authentication.user">
         <li ui-sref-active="active">
@@ -17,7 +17,7 @@
     </nav>
     <!-- Menu trigger (menu button) -->
   </div>
-  <a id="cd-menu-trigger" href="#0"><span class="cd-menu-icon"></span></a>
+  <a id="cd-menu-trigger" ng-click="bool=!bool"><span class="cd-menu-icon"></span></a>
 
 <!-- /////////////////////////////
 ////////// End header //////////

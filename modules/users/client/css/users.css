@@ -1,0 +1,110 @@
+
+
+/* ------------------------------------ *
+ *  ACCOUNT section
+/* ------------------------------------ */
+
+#section-account {
+    position: relative;
+    overflow: hidden;
+}
+
+.form-top {
+    background-color: rgba(0, 0, 0, .6);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.form-middle {
+    background-color: rgba(0, 0, 0, .6);
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.form-bottom {
+    background-color: rgba(0, 0, 0, .6);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.form-top h3 {
+    font-size: 22px;
+}
+
+.form-top span {
+    font-size: 16px;
+}
+
+.form-top .fa {
+    font-size: 66px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.signin input[type] {
+    border-radius: 50px;
+    height: auto;
+    padding: 10px 30px;
+    font-size: 20px;
+    width: 100%;
+}
+
+.signin .error-text {
+    font-size: 18px;
+    color: rgba( 255, 255, 255, .8 );
+    text-shadow: #761c19
+}
+
+
+
+
+.account-caption {
+    z-index: 3;
+}
+.account-caption .search {
+    background-color: rgba(0, 0, 0, .3);
+    padding: 20px 20px;
+}
+
+.account-caption .search #inputSearch {
+    border-radius: 50px;
+    height: auto;
+    padding: 10px 30px;
+    font-size: 20px;
+    width: 81.9%;
+}
+.account-caption .search button {
+    margin-left: -50px;
+}
+
+.account-caption h1 {
+    font-size: 82px;
+    font-weight: bold;
+}
+.account-caption h1 span {
+    display: inline-block;
+    padding: 0px 12px;
+    margin-right: 3px;
+}
+.account-caption .divider {
+    margin: 30px 0 30px 0;
+}
+.account-caption p {
+    font-size: 28px;
+}
+@media only screen and (max-width: 992px) {
+    .account-caption h1 {
+        font-size: 68px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .account-caption {
+        bottom: 80px;
+        left: 30px;
+    }
+    .account-caption h1 {
+        font-size: 32px;
+    }
+    .account-caption p {
+        font-size: 18px;
+    }
+}

@@ -13,8 +13,8 @@
       Menus = _Menus_;
     }));
 
-    it('should have rightlateral added', function() {
-      expect(Menus.menus.rightlateral).toBeDefined();
+    it('should have topbar added', function() {
+      expect(Menus.menus.topbar).toBeDefined();
     });
 
     it('should have default roles to user and admin', function() {
